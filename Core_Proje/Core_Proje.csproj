@@ -7,6 +7,111 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Include="wwwroot\Template\css\aos.css" />
+    <None Include="wwwroot\Template\css\bootstrap-icons\bootstrap-icons.css" />
+    <None Include="wwwroot\Template\css\bootstrap-icons\fonts\bootstrap-icons.woff" />
+    <None Include="wwwroot\Template\css\bootstrap-icons\fonts\bootstrap-icons.woff2" />
+    <None Include="wwwroot\Template\css\bootstrap-icons\index.html" />
+    <None Include="wwwroot\Template\css\bootstrap.css" />
+    <None Include="wwwroot\Template\css\bootstrap.min.css" />
+    <None Include="wwwroot\Template\css\bootstrap.min.css.map" />
+    <None Include="wwwroot\Template\css\font-awesome\css\all.css" />
+    <None Include="wwwroot\Template\css\font-awesome\css\all.min.css" />
+    <None Include="wwwroot\Template\css\font-awesome\css\brands.css" />
+    <None Include="wwwroot\Template\css\font-awesome\css\brands.min.css" />
+    <None Include="wwwroot\Template\css\font-awesome\css\fontawesome.css" />
+    <None Include="wwwroot\Template\css\font-awesome\css\fontawesome.min.css" />
+    <None Include="wwwroot\Template\css\font-awesome\css\regular.css" />
+    <None Include="wwwroot\Template\css\font-awesome\css\regular.min.css" />
+    <None Include="wwwroot\Template\css\font-awesome\css\solid.css" />
+    <None Include="wwwroot\Template\css\font-awesome\css\solid.min.css" />
+    <None Include="wwwroot\Template\css\font-awesome\css\svg-with-js.css" />
+    <None Include="wwwroot\Template\css\font-awesome\css\svg-with-js.min.css" />
+    <None Include="wwwroot\Template\css\font-awesome\css\v4-shims.css" />
+    <None Include="wwwroot\Template\css\font-awesome\css\v4-shims.min.css" />
+    <None Include="wwwroot\Template\css\font-awesome\LICENSE.txt" />
+    <None Include="wwwroot\Template\css\font-awesome\webfonts\fa-brands-400.eot" />
+    <None Include="wwwroot\Template\css\font-awesome\webfonts\fa-brands-400.svg" />
+    <None Include="wwwroot\Template\css\font-awesome\webfonts\fa-brands-400.ttf" />
+    <None Include="wwwroot\Template\css\font-awesome\webfonts\fa-brands-400.woff" />
+    <None Include="wwwroot\Template\css\font-awesome\webfonts\fa-brands-400.woff2" />
+    <None Include="wwwroot\Template\css\font-awesome\webfonts\fa-regular-400.eot" />
+    <None Include="wwwroot\Template\css\font-awesome\webfonts\fa-regular-400.svg" />
+    <None Include="wwwroot\Template\css\font-awesome\webfonts\fa-regular-400.ttf" />
+    <None Include="wwwroot\Template\css\font-awesome\webfonts\fa-regular-400.woff" />
+    <None Include="wwwroot\Template\css\font-awesome\webfonts\fa-regular-400.woff2" />
+    <None Include="wwwroot\Template\css\font-awesome\webfonts\fa-solid-900.eot" />
+    <None Include="wwwroot\Template\css\font-awesome\webfonts\fa-solid-900.svg" />
+    <None Include="wwwroot\Template\css\font-awesome\webfonts\fa-solid-900.ttf" />
+    <None Include="wwwroot\Template\css\font-awesome\webfonts\fa-solid-900.woff" />
+    <None Include="wwwroot\Template\css\font-awesome\webfonts\fa-solid-900.woff2" />
+    <None Include="wwwroot\Template\css\main.css" />
+    <None Include="wwwroot\Template\favicon.ico" />
+    <None Include="wwwroot\Template\images\avatar.jpg" />
+    <None Include="wwwroot\Template\images\clients\client1.png" />
+    <None Include="wwwroot\Template\images\clients\client2.png" />
+    <None Include="wwwroot\Template\images\clients\client3.png" />
+    <None Include="wwwroot\Template\images\clients\client4.png" />
+    <None Include="wwwroot\Template\images\clients\client5.png" />
+    <None Include="wwwroot\Template\images\clients\client6.png" />
+    <None Include="wwwroot\Template\images\clients\client7.png" />
+    <None Include="wwwroot\Template\images\illustrations\building_websites.svg" />
+    <None Include="wwwroot\Template\images\illustrations\creative-team.svg" />
+    <None Include="wwwroot\Template\images\illustrations\development.svg" />
+    <None Include="wwwroot\Template\images\illustrations\hello.svg" />
+    <None Include="wwwroot\Template\images\illustrations\hello2.svg" />
+    <None Include="wwwroot\Template\images\illustrations\hello3.svg" />
+    <None Include="wwwroot\Template\images\illustrations\hello4.svg" />
+    <None Include="wwwroot\Template\images\illustrations\website-app.svg" />
+    <None Include="wwwroot\Template\images\illustrations\work-chat.svg" />
+    <None Include="wwwroot\Template\images\illustrations\work-together.svg" />
+    <None Include="wwwroot\Template\images\marker.svg" />
+    <None Include="wwwroot\Template\images\portfolio\1-small.png" />
+    <None Include="wwwroot\Template\images\portfolio\1.jpg" />
+    <None Include="wwwroot\Template\images\portfolio\2-small.png" />
+    <None Include="wwwroot\Template\images\portfolio\2.jpg" />
+    <None Include="wwwroot\Template\images\portfolio\3-small.png" />
+    <None Include="wwwroot\Template\images\portfolio\3.jpg" />
+    <None Include="wwwroot\Template\images\portfolio\4-small.png" />
+    <None Include="wwwroot\Template\images\portfolio\4.jpg" />
+    <None Include="wwwroot\Template\images\portfolio\5-small.png" />
+    <None Include="wwwroot\Template\images\portfolio\5.jpg" />
+    <None Include="wwwroot\Template\images\portfolio\6-small.png" />
+    <None Include="wwwroot\Template\images\portfolio\6.jpg" />
+    <None Include="wwwroot\Template\images\portfolio\7-small.png" />
+    <None Include="wwwroot\Template\images\portfolio\7.jpg" />
+    <None Include="wwwroot\Template\images\portfolio\8-small.png" />
+    <None Include="wwwroot\Template\images\portfolio\8.jpg" />
+    <None Include="wwwroot\Template\images\services\app-development.svg" />
+    <None Include="wwwroot\Template\images\services\full-stack.svg" />
+    <None Include="wwwroot\Template\images\services\graphic-design.svg" />
+    <None Include="wwwroot\Template\images\services\ui-ux.svg" />
+    <None Include="wwwroot\Template\images\services\web-design.svg" />
+    <None Include="wwwroot\Template\images\team\emp-1.jpg" />
+    <None Include="wwwroot\Template\images\team\emp-2.jpg" />
+    <None Include="wwwroot\Template\images\team\emp-3.jpg" />
+    <None Include="wwwroot\Template\images\team\emp-4.jpg" />
+    <None Include="wwwroot\Template\images\team\emp-5.jpg" />
+    <None Include="wwwroot\Template\images\team\emp-6.jpg" />
+    <None Include="wwwroot\Template\images\testimonials\client1.jpg" />
+    <None Include="wwwroot\Template\images\testimonials\client2.jpg" />
+    <None Include="wwwroot\Template\images\testimonials\client3.jpg" />
+    <None Include="wwwroot\Template\images\testimonials\client4.jpg" />
+    <None Include="wwwroot\Template\images\wave-bg.svg" />
+    <None Include="wwwroot\Template\index.html" />
+    <None Include="wwwroot\Template\LICENSE-free.txt" />
+    <None Include="wwwroot\Template\README.txt" />
+    <None Include="wwwroot\Template\scripts\aos.min.js" />
+    <None Include="wwwroot\Template\scripts\BigPicture.min.js" />
+    <None Include="wwwroot\Template\scripts\bootstrap.bundle.min.js" />
+    <None Include="wwwroot\Template\scripts\bootstrap.bundle.min.js.map" />
+    <None Include="wwwroot\Template\scripts\imagesloaded.pkgd.min.js" />
+    <None Include="wwwroot\Template\scripts\main.js" />
+    <None Include="wwwroot\Template\scripts\masonry.pkgd.min.js" />
+    <None Include="wwwroot\Template\scripts\purecounter.min.js" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="9.0.9" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="9.0.9">
       <PrivateAssets>all</PrivateAssets>
@@ -17,6 +122,7 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="8.0.7" />
   </ItemGroup>
 
   <ItemGroup>
