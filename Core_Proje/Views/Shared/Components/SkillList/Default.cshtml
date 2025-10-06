@@ -1,0 +1,132 @@
+﻿@using EntityLayer.Concrete
+@model List<Skill>
+
+<div class="section px-3 px-lg-4 pt-5" id="skills">
+    <div class="container-narrow">
+        <div class="text-center mb-5">
+            <h2 class="marker marker-center">My Skills</h2>
+        </div>
+        <div class="text-center">
+            <p class="mx-auto mb-3" style="max-width:600px">I am a quick learner and specialize in multitude of skills required for Web Application Development and Product Design</p>
+        </div>
+        <div class="bg-light p-3">
+            <div class="row">
+
+                @foreach (var item in Model)
+                {
+
+                    @* 
+                        yanyana nasıl yazdırdık?
+                        col-md-6 classı ile yanyana iki sütun halinde beceriler gösteriliyor.
+                        örnekin, Model'de 4 tane Skill nesnesi varsa,
+                        bunlar 2'şer 2'şer yanyana gösteriliyor.
+                        1. satırda 2 tane, 2. satırda 2 tane
+                        col-md-6 classı ile bu sağlanıyor.
+                        *@
+
+
+                    <div class="col-md-6">
+                        @* col-md-6 classı : 
+                            Bu sınıf, Bootstrap framework'ünde kullanılan bir grid sistemidir.
+                            "col" sütun anlamına gelir ve " md" medium (orta) ekran boyutunu ifade eder.
+                            "6" ise bu sütunun genişliğini belirtir ve 12'lik bir grid sisteminde 6,
+                            yani ekranın yarısı kadar genişlikte olacağını ifade eder.
+                            Bu sınıf, bir öğenin orta boyutlu ekranlarda (örneğin, tabletlerde)
+                            ekranın yarısı kadar genişlikte olmasını sağlar.
+                            Bu sayede responsive (duyarlı) tasarım elde edilir ve
+                            öğeler farklı ekran boyutlarına uyum sağlar.
+                            Bu sayede yanyana iki sütun halinde beceriler gösteriliyor.
+                        *@
+                        <div class="py-1">
+                            @* 
+                                py-1 classı : 
+                                Bu sınıf, Bootstrap framework'ünde kullanılan bir yardımcı sınıftır.
+                                "p" padding (iç boşluk) anlamına gelir ve "y" ise dikey eksende (üst ve alt) 
+                                uygulanacağını belirtir. 
+                                "1" ise padding miktarını ifade eder ve bu durumda 0.25rem (4px) olarak ayarlanır.
+                        *@
+                            <div class="d-flex text-small fw-bolder">
+                                @* 
+                                    d-flex classı :
+                                    Bu sınıf, Bootstrap framework'ünde kullanılan bir yardımcı sınıftır.
+                                    "d" display (gösterim) anlamına gelir ve "flex" ise esnek kutu düzeni (flexbox)
+                                    kullanılacağını belirtir.
+                                    Bu sınıf, bir konteynerin içindeki öğeleri esnek bir şekilde hizalamak ve düzenlemek için kullanılır.
+                                   
+                                    text-small classı :
+                                    Bu sınıf, Bootstrap framework'ünde kullanılan bir yardımcı sınıftır.
+                                    "text" metin anlamına gelir ve "small" ise metin boyutunun küçük olacağını belirtir.
+                                    
+                                    fw-bolder classı :
+                                    Bu sınıf, Bootstrap framework'ünde kullanılan bir yardımcı sınıftır.
+                                    "fw" font weight (yazı kalınlığı) anlamına gelir ve "bolder" ise yazının daha kalın olacağını belirtir.
+
+                        *@
+                                <span class="me-auto">@item.Title</span>
+                                @* 
+                                    me-auto classı : 
+                                    Bu sınıf, Bootstrap framework'ünde kullanılan bir yardımcı sınıftır.
+                                    "m" margin (dış boşluk) anlamına gelir ve "e" ise sağ (end) tarafı ifade eder.
+                                    "auto" ise otomatik olarak ayarlanacağını belirtir.
+                                    Bu sınıf, bir öğenin sağ tarafındaki dış boşluğu otomatik olarak ayarlamak için kullanılır.
+                                    Bu, öğenin sağ tarafında mümkün olan en fazla boşluk bırakılmasını sağlar ve 
+                                    öğeyi sol tarafa hizalar.
+                        *@
+                                <span>@item.Value%</span>
+                            </div>
+                            <div class="progress my-1">
+                                @* 
+                                    progress classı : 
+                                    Bu sınıf, Bootstrap framework'ünde kullanılan bir yardımcı sınıftır.
+                                    "progress" ilerleme çubuğu anlamına gelir ve bu sınıf, bir ilerleme çubuğu oluşturmak için kullanılır.
+                                    İlerleme çubuğu, bir işlemin ne kadarının tamamlandığını görsel olarak göstermek için kullanılır.
+                                    
+                                    my-1 classı : 
+                                    Bu sınıf, Bootstrap framework'ünde kullanılan bir yardımcı sınıftır.
+                                    "m" margin (dış boşluk) anlamına gelir ve "y" ise dikey eksende (üst ve alt) 
+                                    uygulanacağını belirtir. 
+                                    "1" ise margin miktarını ifade eder ve bu durumda 0.25rem (4px) olarak ayarlanır.
+                        *@
+                                <div class="progress-bar bg-primary" role="progressbar"
+                                     data-aos="zoom-in-right"
+                                     data-aos-delay="100"
+                                     data-aos-anchor=".skills-section"
+                                     style="width: @item.Value%"
+                                     aria-valuenow="@item.Value"
+                                     aria-valuemin="0"
+                                     aria-valuemax="100">
+                                    @* 
+                                        progress-bar classı : 
+                                        Bu sınıf, Bootstrap framework'ünde kullanılan bir yardımcı sınıftır.
+                                        "progress-bar" ilerleme çubuğu anlamına gelir ve bu sınıf, ilerleme çubuğunun 
+                                        dolu kısmını oluşturmak için kullanılır.
+                                        
+                                        bg-primary classı : 
+                                        Bu sınıf, Bootstrap framework'ünde kullanılan bir yardımcı sınıftır.
+                                        "bg" background (arka plan) anlamına gelir ve "primary" ise birincil renk temasını belirtir.
+                                        Bu sınıf, bir öğenin arka plan rengini Bootstrap'in birincil renk temasıyla ayarlamak için kullanılır.
+                        
+                                        *@
+                                 </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+                @*
+                    burada ne oldu?
+                    foreach döngüsü ile Model'deki her bir Skill nesnesi için HTML yapısı oluşturuluyor.
+                    Her bir Skill nesnesinin Title ve Value özellikleri kullanılarak ilerleme 
+                    çubuğu (progress bar) oluşturuluyor.
+                    Bu sayede, Model'deki tüm beceriler dinamik olarak sayfada görüntüleniyor.
+                    Yani, Model'deki her bir Skill nesnesi için ayrı ayrı HTML kodu yazmak yerine,
+                    foreach döngüsü sayesinde bu işlem otomatik olarak yapılıyor.
+                    Yanyana iki sütun halinde beceriler gösteriliyor.
+                    Bunuda col-md-6 sınıfı ile sağlanıyor.
+
+
+                *@
+                
+            </div>
+        </div>
+    </div>
+</div>
