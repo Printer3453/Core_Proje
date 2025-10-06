@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using BusinessLayer.Concrete;
+using DataAccessLayer.EntityFramework;
+using Microsoft.AspNetCore.Mvc;
 
 
 
@@ -10,11 +12,18 @@ namespace Core_Proje.ViewComponents.Feature
 
     public class FeatureList: ViewComponent
     {
+        FeatureManager featureManager = new FeatureManager(new EfFeatureDal());
 
         public IViewComponentResult Invoke()
         {
-            return View();
+            var values = featureManager.TGetList();
+            return View(values);
         }
+
+
+
+
+
         /* Bu ViewComponent, özelliklerin (features) listelenmesi için kullanılır.
          * Invoke metodu, ViewComponent'in ana işlevini yerine getirir ve bir görünüm döndürür.
          * Controller'daki action metotlarına benzer şekilde çalışır.
