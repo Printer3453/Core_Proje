@@ -1,6 +1,21 @@
-﻿namespace Core_Proje.ViewComponents.Contact
+﻿using BusinessLayer.Concrete;
+using DataAccessLayer.EntityFramework;
+using Microsoft.AspNetCore.Mvc;
+
+namespace Core_Proje.ViewComponents.Contact
 {
-    public class SendMessage
+    public class SendMessage: ViewComponent
     {
+
+        MessageManager messageManager = new MessageManager(new EfMessageDal());
+
+        public IViewComponentResult Invoke()
+        {
+            var values = messageManager.TGetList();
+            return View(values);
+
+
+        }
+
     }
 }
