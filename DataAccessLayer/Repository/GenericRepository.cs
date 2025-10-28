@@ -8,6 +8,13 @@ using System.Threading.Tasks;
 
 namespace DataAccessLayer.Repository
 {
+    /*
+     Burada repository pattern kullanılarak,
+        GenericRepository<T> sınıfı, IGenericDal<T> arayüzünü uygulayarak temel CRUD işlemlerini sağlar.
+        Bu sınıf, herhangi bir varlık türü (T) için kullanılabilir ve veri erişim kodunu merkezi bir şekilde yönetir.
+        Bu sayede, veri erişim kodu iş mantığından ayrılmış olur ve kodun daha temiz, test edilebilir ve sürdürülebilir olması sağlanır.
+
+     */
     public class GenericRepository<T> : IGenericDal<T> where T : class
     {
         public void Delete(T t)

@@ -16,6 +16,7 @@ namespace BusinessLayer.Concrete
         {
             _messageDal = messageDal;
         }
+        
         public void TAdd(Message t)
         {
             _messageDal.Insert(t);

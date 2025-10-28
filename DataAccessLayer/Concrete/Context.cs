@@ -10,6 +10,18 @@ namespace DataAccessLayer.Concrete
 {
     public class Context: DbContext
     {
+        /*
+         
+        Repository nedir
+        ?
+        Repository pattern, veri erişim katmanını soyutlamak ve yönetmek için kullanılan bir tasarım desenidir. 
+        Bu desen, veri kaynaklarına (örneğin, veritabanları, web servisleri, dosyalar) 
+        erişimi merkezi bir şekilde yönetmeyi amaçlar. Repository pattern'in temel amacı, 
+        veri erişim kodunu iş mantığından ayırmak ve böylece kodun daha temiz, 
+        test edilebilir ve sürdürülebilir olmasını sağlamaktır.
+        
+         
+         */
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlServer("server=desktop-af2jbbh;database=CorePortfolioDB;integrated security=true;");
