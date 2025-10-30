@@ -53,5 +53,10 @@ namespace Core_Proje.Controllers
             _experienceManager.TUpdate(experience);
             return RedirectToAction("Index");
         }
+
+
+
+
+
     }
 }

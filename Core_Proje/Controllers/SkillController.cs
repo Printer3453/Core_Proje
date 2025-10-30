@@ -43,7 +43,7 @@ namespace Core_Proje.Controllers
             return RedirectToAction("Index");
         }
         [HttpGet]
-        public IActionResult UpdateSkill(int id)
+        public IActionResult EditSkill(int id)
         {
             ViewBag.v1 = "Yetenek Güncelleme ";
             ViewBag.v2 = "Yetenekler ";
@@ -52,7 +52,7 @@ namespace Core_Proje.Controllers
             return View(value);
         }
         [HttpPost]
-        public IActionResult UpdateSkill(Skill skill)
+        public IActionResult EditSkill(Skill skill)
         {
             _skillManager.TUpdate(skill);
             return RedirectToAction("Index");
