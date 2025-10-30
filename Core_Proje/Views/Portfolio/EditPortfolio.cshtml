@@ -1,22 +1,26 @@
 ﻿@model EntityLayer.Concrete.Portfolio;
 @{
-    ViewData["Title"] = "AddPortfolio";
+    ViewData["Title"] = "EditPortfolio";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
+
+
+
 
 <div class="card-header border-0">
     <h3 class="mb-0">Proje Ekleme Sayfası</h3>
 </div>
 
-@using (Html.BeginForm("AddPortfolio", "Portfolio", FormMethod.Post))
+@using (Html.BeginForm("EditPortfolio", "Portfolio", FormMethod.Post))
 {
+    @Html.HiddenFor(model => model.PortfolioID)
     <br />
     <div class="form-group">
         @Html.Label("Proje Başlığı")
         @Html.TextBoxFor(model => model.Name, new { @class = "form-control", @placeholder = "Proje Başlığı" })
         @Html.ValidationMessageFor(model => model.Name)
     </div>
-   
+
     <div class="form-group">
         @Html.Label("Görsel 1")
         @Html.TextBoxFor(model => model.ImageUrl, new { @class = "form-control", @placeholder = "Tarih Bilgisi" })
@@ -33,6 +37,11 @@
         @Html.ValidationMessageFor(model => model.ProjectUrl)
     </div>
     <div class="form-group">
+        @Html.Label("Platform")
+        @Html.TextBoxFor(model => model.Platform, new { @class = "form-control", @placeholder = "Platform Yolu" })
+        @Html.ValidationMessageFor(model => model.Platform)
+    </div>
+    <div class="form-group">
         @Html.Label("Fiyat")
         @Html.TextBoxFor(model => model.Price, new { @class = "form-control", @placeholder = "Fiyat" })
         @Html.ValidationMessageFor(model => model.Price)
@@ -42,9 +51,11 @@
         @Html.TextBoxFor(model => model.Value, new { @class = "form-control", @placeholder = "Tamamlanma Oranı" })
         @Html.ValidationMessageFor(model => model.Value)
     </div>
-    
+
     <button type="submit" class="btn btn-info">Kaydet</button>
 
 }
+
+
 
 

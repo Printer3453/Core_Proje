@@ -39,7 +39,7 @@ namespace Core_Proje.Controllers
             return RedirectToAction("Index");
         }
         [HttpGet]
-        public IActionResult UpdateExperience(int id)
+        public IActionResult EditExperience(int id)
         {
             ViewBag.v1 = "Deneyim Güncelleme ";
             ViewBag.v2 = "Deneyimler ";
@@ -48,7 +48,7 @@ namespace Core_Proje.Controllers
             return View(value);
         }
         [HttpPost]
-        public IActionResult UpdateExperience(Experience experience)
+        public IActionResult EditExperience(Experience experience)
         {
             _experienceManager.TUpdate(experience);
             return RedirectToAction("Index");

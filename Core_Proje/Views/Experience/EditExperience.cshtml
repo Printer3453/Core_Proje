@@ -1,6 +1,6 @@
 ﻿@model EntityLayer.Concrete.Experience;
 @{
-    ViewData["Title"] = "UpdateExperience";
+    ViewData["Title"] = "EditExperience";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
@@ -8,7 +8,7 @@
     <h3 class="mb-0">Deneyim Güncelleme Sayfası</h3>
 </div>
 
-@using (Html.BeginForm("UpdateExperience", "Experience", FormMethod.Post))
+@using (Html.BeginForm("EditExperience", "Experience", FormMethod.Post))
 {
     <br />
     @Html.HiddenFor(model => model.ExperienceID)
