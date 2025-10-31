@@ -1,34 +1,50 @@
 ﻿@model EntityLayer.Concrete.Experience
 @{
     ViewData["Title"] = "EditExperience";
-    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    Layout = "~/Views/Shared/_NewAdminLayout.cshtml";
 }
 
-<div class="card-header border-0">
-    <h3 class="mb-0">Deneyim Güncelleme Sayfası</h3>
-</div>
+
 
 @using (Html.BeginForm("EditExperience", "Experience", FormMethod.Post))
 {
-    <br />
-    @Html.HiddenFor(model => model.ExperienceID)
-    <div class="form-group">
-        @Html.Label("Deneyim Başlığı")
-        @Html.TextBoxFor(model => model.Name, new { @class = "form-control", @placeholder = "Deneyim Başlığı" })
+    
+    <div class="col-12 grid-margin stretch-card">
+        
+        <div class="card">
+            <div class="card-body">
+                <p class="card-description">Deneyim Düzenleme Paneli</p>
+                <form class="forms-sample">
+                    <div class="form-group">
+                        <label>Başlık</label>
+                        @Html.TextBoxFor(x=>x.ExperienceID, new {@class="form-control"})
+                    </div>
+                    <div class="form-group">
+                        <label>Başlık</label>
+                       
+                        @Html.TextBoxFor(x => x.Name, new { @class = "form-control" })
+                    </div>
+                    <div class="form-group">
+                        <label>Tarih</label>
+                        
+                        @Html.TextBoxFor(x => x.Date, new { @class = "form-control" })
+                    </div>
+                    <div class="form-group">
+                        <label>Görsel Url</label>
+                        
+                        @Html.TextBoxFor(x => x.ImageUrl, new { @class = "form-control" })
+                    </div>
+                    <div class="form-group">
+                        <label>Açıklama</label>
+                        
+                        @Html.TextAreaFor(x => x.Description, 10, 2, new { @class = "form-control" })
+                    </div>
+                    <button type="submit" class="btn btn-primary mr-2">Kaydet</button>
+                    <button class="btn btn-dark">İptal</button>
+                </form>
+            </div>
+        </div>
     </div>
-    <div class="form-group">
-        @Html.Label("Tarih Bilgisi")
-        @Html.TextBoxFor(model => model.Date, new { @class = "form-control", @placeholder = "Tarih Bilgisi" })
-    </div>
-    <div class="form-group">
-        @Html.Label("Resim Yolu")
-        @Html.TextBoxFor(model => model.ImageUrl, new { @class = "form-control", @placeholder = "Resim Yolu" })
-    </div>
-    <div class="form-group">
-        @Html.Label("Açıklama Bilgisi")
-        @Html.TextAreaFor(model => model.Description, 10, 3, new { @class = "form-control", @placeholder = "Tarih Bilgisi" })
-    </div>
-    <button type="submit" class="btn btn-info">Güncelle</button>
 }
 
 
