@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using DataAccessLayer.Concrete;
+using Microsoft.AspNetCore.Mvc;
 
 namespace Core_Proje.Controllers
 {
@@ -28,6 +29,10 @@ namespace Core_Proje.Controllers
             return PartialView();
         }
         public PartialViewResult NavigationPartial()
+        {
+            return PartialView();
+        }
+        public PartialViewResult NewSidebar()
         {
             return PartialView();
         }
