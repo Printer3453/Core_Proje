@@ -3,20 +3,33 @@
     ViewData["Title"] = "EditSkill";
     Layout = "~/Views/Shared/_NewAdminLayout.cshtml";
 }
-<div class="card-header border-0">
-    <h3 class="mb-0">Yetenek Düzenleme Sayfası</h3>
-</div>
-
 @using (Html.BeginForm("EditSkill", "Skill", FormMethod.Post))
 {
-    @Html.HiddenFor(model => model.SkillID)
-    <div class="form-group">
-        @Html.Label("Yetenek Başlığı")
-        @Html.TextBoxFor(model => model.Title, new { @class = "form-control", @placeholder = "Yetenek Başlığı" })
+    
+
+<div class="col-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <p class="card-description">Yetenek Düzenleme Paneli</p>
+            <form class="forms-sample" >
+                <div class="form-group">
+                    <div class="form-group">
+                        <label>ID</label>
+                        @Html.TextBoxFor(model => model.SkillID, new { @class = "form-control",@placeholder = "Yetenek ID" })
+                    </div>
+                    <div class="form-group">
+                        <label>Başlık</label>
+                        @Html.TextBoxFor(model => model.Title, new { @class = "form-control", @placeholder = "Yetenek Başlığı" })
+                    </div>
+                    <div class="form-group">
+                        <label>Değer:</label>
+                        @Html.TextBoxFor(model => model.Value, new { @class = "form-control", @placeholder = "Yetenek Değeri" })
+                    </div>
+                    <button type="submit" class="btn btn-primary mr-2">Kaydet</button>
+                    <button class="btn btn-dark">İptal</button>
+                </div>
+            </form>
+        </div>
     </div>
-    <div class="form-group">
-        @Html.Label("Yetenek Oranı")
-        @Html.TextBoxFor(model => model.Value, new { @class = "form-control", @placeholder = "Yetenek Oranı" })
-    </div>
-    <button type="submit" class="btn btn-success">Düzenle</button>
+</div>
 }
