@@ -34,7 +34,7 @@ namespace BusinessLayer.Concrete
 
         public List<Message> TGetList()
         {
-            return _messageDal.GetListAll();
+            return _messageDal.GetList();
         }
 
         public void TUpdate(Message t)

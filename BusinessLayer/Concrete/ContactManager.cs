@@ -35,7 +35,7 @@ namespace BusinessLayer.Concrete
 
         public List<Contact> TGetList()
         {
-            return _contactDal.GetListAll();
+            return _contactDal.GetList();
         }
 
         public void TUpdate(Contact t)

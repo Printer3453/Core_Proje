@@ -33,7 +33,7 @@ namespace BusinessLayer.Concrete
 
         public List<Experience> TGetList()
         {
-            return _experienceDal.GetListAll();
+            return _experienceDal.GetList();
         }
 
         public void TUpdate(Experience t)

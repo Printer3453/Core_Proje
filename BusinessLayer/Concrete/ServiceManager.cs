@@ -33,7 +33,7 @@ namespace BusinessLayer.Concrete
 
         public List<Service> TGetList()
         {
-            return _serviceDal.GetListAll();
+            return _serviceDal.GetList();
         }
 
         public void TUpdate(Service t)

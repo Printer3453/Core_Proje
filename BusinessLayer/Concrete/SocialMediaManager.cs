@@ -33,7 +33,7 @@ namespace BusinessLayer.Concrete
 
         public List<SocialMedia> TGetList()
         {
-            return _socialMediaDal.GetListAll();
+            return _socialMediaDal.GetList();
         }
 
         public void TUpdate(SocialMedia t)

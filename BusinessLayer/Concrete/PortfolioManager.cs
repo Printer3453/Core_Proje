@@ -33,7 +33,7 @@ namespace BusinessLayer.Concrete
 
         public List<Portfolio> TGetList()
         {
-            return _portfolioDal.GetListAll();
+            return _portfolioDal.GetList();
         }
 
         public void TUpdate(Portfolio t)

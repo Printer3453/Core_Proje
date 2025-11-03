@@ -33,7 +33,7 @@ namespace BusinessLayer.Concrete
 
         public List<Skill> TGetList()
         {
-            return _skillDal.GetListAll();
+            return _skillDal.GetList();
         }
 
         public void TUpdate(Skill t)

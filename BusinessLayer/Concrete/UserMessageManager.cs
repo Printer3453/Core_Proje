@@ -44,7 +44,7 @@ namespace BusinessLayer.Concrete
         public List<UserMessage> TGetList()
         {
             
-            return _userMessageDal.GetListAll();
+            return _userMessageDal.GetList();
         }
 
         public void TUpdate(UserMessage t)
