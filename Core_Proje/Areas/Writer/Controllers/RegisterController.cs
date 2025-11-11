@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Core_Proje.Areas.Writer.Models;
+using Microsoft.AspNetCore.Mvc;
 
 namespace Core_Proje.Areas.Writer.Controllers
 {
@@ -11,8 +12,13 @@ namespace Core_Proje.Areas.Writer.Controllers
             return View();
         }
         [HttpPost]
-        public IActionResult Index(int a)
+        public IActionResult Index(UserRegisterViewModel user)
         {
+            if (ModelState.IsValid)
+            {
+                // Kayıt işlemleri burada yapılacak
+                //return RedirectToAction("Index", "Login");
+            }
             return View();
         }
     }
