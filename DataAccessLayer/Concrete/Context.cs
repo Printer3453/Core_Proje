@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace DataAccessLayer.Concrete
 {
-    public class Context: IdentityDbContext<WriteUser,WriterRole,int>
+    public class Context: IdentityDbContext<WriterUser,WriterRole,int>
     {
         /*
          

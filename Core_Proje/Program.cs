@@ -15,7 +15,7 @@ builder.Services.AddDbContext<Context>();
 
 
 // IDENTITY kaydý - EN ÖNEMLÝ KISIM
-builder.Services.AddIdentity<WriteUser, WriterRole>()
+builder.Services.AddIdentity<WriterUser, WriterRole>()
     .AddEntityFrameworkStores<Context>()
     .AddDefaultTokenProviders();
 

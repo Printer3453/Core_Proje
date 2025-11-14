@@ -9,9 +9,9 @@ namespace Core_Proje.Areas.Writer.Controllers
     public class RegisterController : Controller
     {
 
-        private readonly UserManager<WriteUser> _userManager;
+        private readonly UserManager<WriterUser> _userManager;
 
-        public RegisterController(UserManager<WriteUser> userManager)
+        public RegisterController(UserManager<WriterUser> userManager)
         {
             _userManager = userManager;
         }
@@ -26,7 +26,7 @@ namespace Core_Proje.Areas.Writer.Controllers
         {
             if (ModelState.IsValid)
             {
-                WriteUser w = new WriteUser()
+                WriterUser w = new WriterUser()
                 {
                     Name = user.Name,
                     UserName = user.UserName,

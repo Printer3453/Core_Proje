@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace EntityLayer.Concrete
 {
-    public class WriteUser: IdentityUser<int>
+    public class WriterUser: IdentityUser<int>
     {
         public string? Name { get; set; }
         public string? SurName { get; set; }
