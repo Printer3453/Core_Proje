@@ -19,7 +19,7 @@ namespace Core_Proje.Areas.Writer.Controllers
         [HttpGet]
         public IActionResult Index()
         {
-            return View();
+            return View(new UserRegisterViewModel());
         }
         [HttpPost]
         public async Task<IActionResult> Index(UserRegisterViewModel user)
@@ -52,7 +52,7 @@ namespace Core_Proje.Areas.Writer.Controllers
 
             }
  
-            return View();
+            return View(user);
         }
     }
 }
