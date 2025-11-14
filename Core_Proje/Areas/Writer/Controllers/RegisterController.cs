@@ -33,9 +33,6 @@ namespace Core_Proje.Areas.Writer.Controllers
                     Email = user.Mail,
                     SurName = user.Surname,
                     ImageUrl = user.ImageUrl
-
-
-
                 };
                 var result = await _userManager.CreateAsync(w, user.Password);
                 if (result.Succeeded)
