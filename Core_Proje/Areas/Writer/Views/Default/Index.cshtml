@@ -13,9 +13,6 @@
     <div class="card">
         <div class="card-body">
             <h4 class="card-title">Duyurular</h4>
-            <p class="card-description">
-                Add class <code>.table</code>
-            </p>
             <div class="table-responsive">
                 <table class="table">
                     <thead>
@@ -25,6 +22,7 @@
                             <th>Tarih</th>
                             <th>Tür</th>
                             <th>Konu</th>
+                            <th>Detaylar</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -68,11 +66,13 @@
                             }
 
                             <tr>
-                                <td>@item.ID</td>
+                                <th>@item.ID</th>
                                 <td>@item.Title</td>
-                                <td>@item.Date.ToShortDateString()</td>
+                                @* <td>@item.Date.ToShortDateString()</td> *@
+                                <td>@(((DateTime)item.Date).ToString("dd-MMM-yyyy"))</td>
                                 <td><label class="@color">@item.Status</label></td>
                                 <td>@item.Content</td>
+                                <td><a href="#" class="btn btn-outline-primary">Detaylar</a></td>
                             </tr>
                         }
 
