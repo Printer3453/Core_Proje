@@ -5,6 +5,9 @@
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_WriterLayout.cshtml";
 }
+@{
+    string color = "";
+}
 
 <div class="col-lg-12 grid-margin stretch-card">
     <div class="card">
@@ -20,16 +23,55 @@
                             <th>#</th>
                             <th>Başlık</th>
                             <th>Tarih</th>
+                            <th>Tür</th>
                             <th>Konu</th>
                         </tr>
                     </thead>
                     <tbody>
                         @foreach (var item in Model)
                         {
+                            if (item.Status == "Yeni Yazı")
+                            {
+                                color = "badge badge-primary"; // mavi, daha pozitif
+                            }
+                            else if (item.Status == "Bilgilendirme")
+                            {
+                                color = "badge badge-info"; // açık mavi, daha nötr
+                            }
+                            else if (item.Status == "Duyuru")
+                            {
+                                color = "badge badge-warning"; // sarı, dikkat çekici
+                            }
+                            else if (item.Status == "Önemli")
+                            {
+                                color = "badge badge-danger"; // kırmızı, kritik
+                            }
+                            else if (item.Status == "Yeni Video")
+                            {
+                                color = "badge badge-success"; // yeşil, pozitif
+                            }
+                            else if (item.Status == "Konferans")
+                            {
+                                color = "badge badge-dark"; // siyah, resmi
+                            }
+                            else if (item.Status == "WorkShop")
+                            {
+                                color = "badge badge-secondary"; // gri, teknik
+                            }
+                            else if (item.Status == "Bootcamp")
+                            {
+                                color = "badge badge-light"; // açık gri, soft
+                            }
+                            else
+                            {
+                                color = "badge badge-secondary"; // default
+                            }
+
                             <tr>
                                 <td>@item.ID</td>
                                 <td>@item.Title</td>
                                 <td>@item.Date.ToShortDateString()</td>
+                                <td><label class="@color">@item.Status</label></td>
                                 <td>@item.Content</td>
                             </tr>
                         }
