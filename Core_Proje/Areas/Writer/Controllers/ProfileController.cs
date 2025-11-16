@@ -18,7 +18,11 @@ namespace Core_Proje.Areas.Writer.Controllers
         public async Task<IActionResult> Index()
         {
             var values = await _userManager.FindByNameAsync(User.Identity.Name);
-            return View(values);
+            UserEditViewModel model = new UserEditViewModel();
+            model.Name = values.Name;
+            model.SurName = values.SurName;
+            model.ImageUrl = values.ImageUrl;
+            return View(model);
         }
 
         [HttpPost]
