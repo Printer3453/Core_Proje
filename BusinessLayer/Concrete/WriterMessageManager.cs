@@ -28,6 +28,11 @@ namespace BusinessLayer.Concrete
             _writerMessageDal.Delete(t);
         }
 
+        public List<WriterMessage> TGetByFilter(string p)
+        {
+            return _writerMessageDal.GetByFilter(x => x.Receiver == p);
+        }
+
         public WriterMessage TGetByID(int id)
         {
             

@@ -35,6 +35,11 @@ namespace BusinessLayer.Concrete
             _userMessageDal.Delete(t);
         }
 
+        public List<UserMessage> TGetByFilter()
+        {
+            throw new NotImplementedException();
+        }
+
         public UserMessage TGetByID(int id)
         {
             

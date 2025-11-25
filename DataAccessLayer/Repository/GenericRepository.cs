@@ -35,7 +35,15 @@ namespace DataAccessLayer.Repository
         {
            
             using var c = new Context();
-            return c.Set<T>().Find(id);
+            var values=  c.Set<T>().Find(id);
+            if (values == null)
+            {
+                throw new InvalidOperationException($"Entity of type {typeof(T).Name} with ID {id} was not found.");
+            }
+            else
+            {
+                return values;
+            }
 
         }
 

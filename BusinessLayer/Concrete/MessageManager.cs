@@ -12,6 +12,7 @@ namespace BusinessLayer.Concrete
     public class MessageManager : IMessageService
     {
         IMessageDal _messageDal;
+
         public MessageManager(IMessageDal messageDal)
         {
             _messageDal = messageDal;
@@ -25,6 +26,11 @@ namespace BusinessLayer.Concrete
         public void TDelete(Message t)
         {
             _messageDal.Delete(t);
+        }
+
+        public List<Message> TGetByFilter()
+        {
+            throw new NotImplementedException();
         }
 
         public Message TGetByID(int id)

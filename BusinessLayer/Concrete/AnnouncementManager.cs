@@ -26,6 +26,11 @@ namespace BusinessLayer.Concrete
             _announcementDal.Delete(t);
         }
 
+        public List<Announcement> TGetByFilter()
+        {
+            throw new NotImplementedException();
+        }
+
         public Announcement TGetByID(int id)
         {
             return _announcementDal.GetByID(id);

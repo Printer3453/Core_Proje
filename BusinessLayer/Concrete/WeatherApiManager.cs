@@ -28,6 +28,11 @@ namespace BusinessLayer.Concrete
             throw new NotImplementedException();
         }
 
+        public List<WeatherApi> TGetByFilter()
+        {
+            throw new NotImplementedException();
+        }
+
         public WeatherApi TGetByID(int id)
         {
            return _weatherApi.GetByID(id);

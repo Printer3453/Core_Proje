@@ -26,6 +26,11 @@ namespace BusinessLayer.Concrete
             _socialMediaDal.Delete(t);
         }
 
+        public List<SocialMedia> TGetByFilter()
+        {
+            throw new NotImplementedException();
+        }
+
         public SocialMedia TGetByID(int id)
         {
             return _socialMediaDal.GetByID(id);
