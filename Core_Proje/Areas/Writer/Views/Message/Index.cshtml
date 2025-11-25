@@ -1,8 +1,79 @@
-﻿
+﻿@using EntityLayer.Concrete
+@model List<WriterMessage>
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_WriterLayout.cshtml";
 }
 
-<h1>Index</h1>
+
+<div class="col-lg-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Gelen Kutusu</h4>
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Konu</th>
+                            <th>Gönderen</th>
+                            <th>Tarih</th>
+                            <th>Detaylar</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                          @*   if (item.WriterMessageID == "Yeni Yazı")
+                            {
+                                color = "badge badge-primary"; // mavi, daha pozitif
+                            }
+                            else if (item.Status == "Bilgilendirme")
+                            {
+                                color = "badge badge-info"; // açık mavi, daha nötr
+                            }
+                            else if (item.Status == "Duyuru")
+                            {
+                                color = "badge badge-warning"; // sarı, dikkat çekici
+                            }
+                            else if (item.Status == "Önemli")
+                            {
+                                color = "badge badge-danger"; // kırmızı, kritik
+                            }
+                            else if (item.Status == "Yeni Video")
+                            {
+                                color = "badge badge-success"; // yeşil, pozitif
+                            }
+                            else if (item.Status == "Konferans")
+                            {
+                                color = "badge badge-dark"; // siyah, resmi
+                            }
+                            else if (item.Status == "WorkShop")
+                            {
+                                color = "badge badge-secondary"; // gri, teknik
+                            }
+                            else if (item.Status == "Bootcamp")
+                            {
+                                color = "badge badge-light"; // açık gri, soft
+                            }
+                            else
+                            {
+                                color = "badge badge-secondary"; // default
+                            }
+ *@
+                            <tr>
+                                <th>@item.WriterMessageID</th>
+                                <td>@item.Subject</td>
+                                <td>@item.Sender</td>
+                                <td>@(((DateTime)item.Date).ToString("dd-MMM-yyyy"))</td>
+                                <td><a href="/Writer/Message/Index/@item.WriterMessageID" class="btn btn-outline-primary">Mesaj Detaylar</a></td>
+                            </tr>
+                        }
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
 
