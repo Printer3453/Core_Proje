@@ -33,6 +33,11 @@ namespace BusinessLayer.Concrete
             return _writerMessageDal.GetByFilter(x => x.Receiver == p);
         }
 
+        public List<WriterMessage> TGetByFilter()
+        {
+            throw new NotImplementedException();
+        }
+
         public WriterMessage TGetByID(int id)
         {
             

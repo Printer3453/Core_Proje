@@ -21,9 +21,11 @@ namespace Core_Proje.Areas.Writer.Controllers
         {
             return View(new UserRegisterViewModel());
         }
+
         [HttpPost]
         public async Task<IActionResult> Index(UserRegisterViewModel user)
         {
+          
             if (ModelState.IsValid)
             {
                 WriterUser w = new WriterUser()
@@ -39,6 +41,7 @@ namespace Core_Proje.Areas.Writer.Controllers
                 {
                     return RedirectToAction("Index", "Login");
                 }
+
                 else
                 {
                     foreach (var item in result.Errors)
@@ -48,8 +51,14 @@ namespace Core_Proje.Areas.Writer.Controllers
                 }
 
             }
- 
+            
             return View(user);
         }
+
+
+        
+
+        
+
     }
 }
