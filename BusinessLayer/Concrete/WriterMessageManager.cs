@@ -28,10 +28,10 @@ namespace BusinessLayer.Concrete
             _writerMessageDal.Delete(t);
         }
 
-        public List<WriterMessage> TGetByFilter(string p)
-        {
-            return _writerMessageDal.GetByFilter(x => x.Receiver == p);
-        }
+        //public List<WriterMessage> TGetByFilter(string p)
+        //{
+        //    return _writerMessageDal.GetByFilter(x => x.Receiver == p);
+        //}
 
         public List<WriterMessage> TGetByFilter()
         {
@@ -48,6 +48,16 @@ namespace BusinessLayer.Concrete
         {
             
             return _writerMessageDal.GetList();
+        }
+
+        public List<WriterMessage> TGetListReceiverMessage(string p)
+        {
+            return _writerMessageDal.GetByFilter(x => x.Receiver == p);
+        }
+
+        public List<WriterMessage> TGetListSendMessage(string p)
+        {
+            return _writerMessageDal.GetByFilter(x => x.Sender == p);
         }
 
         public void TUpdate(WriterMessage t)

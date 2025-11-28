@@ -9,5 +9,7 @@ namespace BusinessLayer.Abstract
 {
     public interface IWriterMessageService: IGenericService<WriterMessage>
     {
+        List<WriterMessage> TGetListSendMessage(string p);
+        List<WriterMessage> TGetListReceiverMessage(string p);
     }
 }
