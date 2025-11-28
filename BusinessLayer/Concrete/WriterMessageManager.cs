@@ -55,7 +55,7 @@ namespace BusinessLayer.Concrete
             return _writerMessageDal.GetByFilter(x => x.Receiver == p);
         }
 
-        public List<WriterMessage> TGetListSendMessage(string p)
+        public List<WriterMessage> TGetListSenderMessage(string p)
         {
             return _writerMessageDal.GetByFilter(x => x.Sender == p);
         }
