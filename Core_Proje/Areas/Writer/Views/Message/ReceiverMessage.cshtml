@@ -16,7 +16,8 @@
                         <tr>
                             <th>#</th>
                             <th>Konu</th>
-                            <th>Gönderen</th>
+                            <th>Gönderen Adı</th>
+                            <th>Gönderen Maili</th>
                             <th>Tarih</th>
                             <th>Detaylar</th>
                         </tr>
@@ -24,46 +25,11 @@
                     <tbody>
                         @foreach (var item in Model)
                         {
-                          @*   if (item.WriterMessageID == "Yeni Yazı")
-                            {
-                                color = "badge badge-primary"; // mavi, daha pozitif
-                            }
-                            else if (item.Status == "Bilgilendirme")
-                            {
-                                color = "badge badge-info"; // açık mavi, daha nötr
-                            }
-                            else if (item.Status == "Duyuru")
-                            {
-                                color = "badge badge-warning"; // sarı, dikkat çekici
-                            }
-                            else if (item.Status == "Önemli")
-                            {
-                                color = "badge badge-danger"; // kırmızı, kritik
-                            }
-                            else if (item.Status == "Yeni Video")
-                            {
-                                color = "badge badge-success"; // yeşil, pozitif
-                            }
-                            else if (item.Status == "Konferans")
-                            {
-                                color = "badge badge-dark"; // siyah, resmi
-                            }
-                            else if (item.Status == "WorkShop")
-                            {
-                                color = "badge badge-secondary"; // gri, teknik
-                            }
-                            else if (item.Status == "Bootcamp")
-                            {
-                                color = "badge badge-light"; // açık gri, soft
-                            }
-                            else
-                            {
-                                color = "badge badge-secondary"; // default
-                            }
- *@
+
                             <tr>
                                 <th>@item.WriterMessageID</th>
                                 <td>@item.Subject</td>
+                                <td>@item.SenderName</td>
                                 <td>@item.Sender</td>
                                 <td>@(((DateTime)item.Date).ToString("dd-MMM-yyyy"))</td>
                                 <td><a href="/Writer/Message/Index/@item.WriterMessageID" class="btn btn-outline-primary">Mesaj Detaylar</a></td>

@@ -77,6 +77,272 @@
         </div>
     </div>
     <div id="scrolltop"><a class="btn btn-secondary" href="#top"><span class="icon"><i class="fas fa-angle-up fa-x"></i></span></a></div>
+
+
+
+    <style>
+        /* Chat Butonu (Sağ Alt) */
+        #faruk-ai-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 50%;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            cursor: pointer;
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.3s;
+            z-index: 9999;
+        }
+
+            #faruk-ai-btn:hover {
+                transform: scale(1.1);
+            }
+
+            #faruk-ai-btn svg {
+                fill: white;
+                width: 30px;
+                height: 30px;
+            }
+
+        /* Chat Penceresi */
+        #faruk-ai-window {
+            position: fixed;
+            bottom: 100px;
+            right: 30px;
+            width: 350px;
+            height: 500px;
+            background-color: #fff;
+            border-radius: 15px;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.2);
+            z-index: 9999;
+            display: none; /* Başlangıçta gizli */
+            flex-direction: column;
+            overflow: hidden;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        /* Başlık */
+        .ai-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+            .ai-header h4 {
+                margin: 0;
+                font-size: 16px;
+                font-weight: 600;
+            }
+
+        .ai-close {
+            cursor: pointer;
+            font-size: 20px;
+        }
+
+        /* Mesaj Alanı */
+        .ai-body {
+            flex: 1;
+            padding: 15px;
+            overflow-y: auto;
+            background-color: #f8f9fe;
+        }
+
+        /* Mesaj Baloncukları */
+        .message {
+            margin-bottom: 15px;
+            padding: 10px 15px;
+            border-radius: 10px;
+            font-size: 14px;
+            line-height: 1.4;
+            max-width: 80%;
+            word-wrap: break-word;
+        }
+
+            .message.user {
+                background-color: #667eea;
+                color: white;
+                margin-left: auto; /* Sağa yasla */
+                border-bottom-right-radius: 0;
+            }
+
+            .message.ai {
+                background-color: #e2e8f0;
+                color: #2d3748;
+                margin-right: auto; /* Sola yasla */
+                border-bottom-left-radius: 0;
+            }
+
+        /* Input Alanı */
+        .ai-footer {
+            padding: 15px;
+            background-color: white;
+            border-top: 1px solid #eee;
+            display: flex;
+            gap: 10px;
+        }
+
+            .ai-footer input {
+                flex: 1;
+                padding: 10px;
+                border: 1px solid #ddd;
+                border-radius: 20px;
+                outline: none;
+                font-size: 14px;
+            }
+
+            .ai-footer button {
+                background: #764ba2;
+                color: white;
+                border: none;
+                padding: 8px 15px;
+                border-radius: 20px;
+                cursor: pointer;
+            }
+
+                .ai-footer button:disabled {
+                    background: #ccc;
+                }
+
+        /* Markdown Kod Bloğu Stili (Basit) */
+        .message pre {
+            background: #2d2d2d;
+            color: #ccc;
+            padding: 10px;
+            border-radius: 5px;
+            overflow-x: auto;
+            font-family: Consolas, monospace;
+            margin-top: 5px;
+        }
+
+        /* Yazıyor Animasyonu */
+        .typing-indicator {
+            font-style: italic;
+            color: #888;
+            font-size: 12px;
+            margin-bottom: 10px;
+            display: none;
+        }
+    </style>
+
+    <div id="faruk-ai-btn" onclick="toggleChat()">
+        <svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z" /></svg>
+    </div>
+
+    <div id="faruk-ai-window">
+        <div class="ai-header">
+            <h4>🤖 Faruk AI Asistan</h4>
+            <div class="ai-close" onclick="toggleChat()">&times;</div>
+        </div>
+        <div class="ai-body" id="ai-messages">
+            <div class="message ai">
+                Merhaba! Ben Faruk'un dijital asistanıyım. Projeler veya kodlar hakkında bana soru sorabilirsin. 👋
+            </div>
+        </div>
+        <div class="typing-indicator" id="ai-typing">Faruk AI düşünüyor...</div>
+        <div class="ai-footer">
+            <input type="text" id="ai-input" placeholder="Bir soru sor..." onkeypress="handleEnter(event)">
+            <button onclick="sendMessage()" id="ai-send-btn">Gönder</button>
+        </div>
+    </div>
+
+    <script>
+        function toggleChat() {
+            const window = document.getElementById('faruk-ai-window');
+            if (window.style.display === 'none' || window.style.display === '') {
+                window.style.display = 'flex';
+                document.getElementById('ai-input').focus();
+            } else {
+                window.style.display = 'none';
+            }
+        }
+
+        function handleEnter(e) {
+            if (e.key === 'Enter') sendMessage();
+        }
+
+        async function sendMessage() {
+            const input = document.getElementById('ai-input');
+            const messagesDiv = document.getElementById('ai-messages');
+            const typingDiv = document.getElementById('ai-typing');
+            const sendBtn = document.getElementById('ai-send-btn');
+
+            const text = input.value.trim();
+            if (!text) return;
+
+            // 1. Kullanıcı mesajını ekrana bas
+            appendMessage(text, 'user');
+            input.value = '';
+            input.disabled = true;
+            sendBtn.disabled = true;
+
+            // 2. "Yazıyor..." göster
+            typingDiv.style.display = 'block';
+            messagesDiv.scrollTop = messagesDiv.scrollHeight;
+
+            try {
+                // 3. Backend'e istek at
+                const response = await fetch('/api/aichat', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ message: text })
+                });
+
+                if (!response.ok) throw new Error("API Hatası");
+
+                const data = await response.json();
+
+                // 4. Cevabı ekrana bas
+                // Basit bir Markdown -> HTML dönüşümü (Kod blokları için)
+                let formattedReply = formatMessage(data.reply);
+                appendMessage(formattedReply, 'ai', true);
+
+            } catch (error) {
+                appendMessage("Üzgünüm, şu an bağlantıda bir sorun var. Lütfen Llama'nın açık olduğundan emin ol.", 'ai');
+                console.error(error);
+            } finally {
+                typingDiv.style.display = 'none';
+                input.disabled = false;
+                sendBtn.disabled = false;
+                input.focus();
+            }
+        }
+
+        function appendMessage(text, sender, isHtml = false) {
+            const messagesDiv = document.getElementById('ai-messages');
+            const msgDiv = document.createElement('div');
+            msgDiv.className = `message ${sender}`;
+
+            if (isHtml) msgDiv.innerHTML = text; // AI cevabı HTML olabilir
+            else msgDiv.innerText = text;        // Kullanıcı mesajı düz metin
+
+            messagesDiv.appendChild(msgDiv);
+            messagesDiv.scrollTop = messagesDiv.scrollHeight; // En alta kaydır
+        }
+
+        // Basit formatter: ```kod``` bloklarını <pre> yapar
+        function formatMessage(text) {
+            // Yeni satırları <br> yap
+            let html = text.replace(/\n/g, '<br>');
+
+            // Kod bloklarını yakala (Basit regex)
+            // ```csharp ... ``` yapısını yakalar
+            html = html.replace(/```(.*?)<br>(.*?)<br>```/gs, '<pre><code>$2</code></pre>');
+
+            return html;
+        }
+    </script>
+
+
+
     <script src="~/Template/scripts/imagesloaded.pkgd.min.js?ver=1.2.0"></script>
     <script src="~/Template/scripts/masonry.pkgd.min.js?ver=1.2.0"></script>
     <script src="~/Template/scripts/BigPicture.min.js?ver=1.2.0"></script>

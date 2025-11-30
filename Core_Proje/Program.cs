@@ -1,6 +1,12 @@
+using BusinessLayer.Abstract;
+using BusinessLayer.Concrete;
+using Core_Proje.AiPlugins;
+using DataAccessLayer.Abstract;
 using DataAccessLayer.Concrete;
+using DataAccessLayer.EntityFramework;
 using EntityLayer.Concrete;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.SemanticKernel; 
 using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -13,6 +19,30 @@ var builder = WebApplication.CreateBuilder(args);
 //     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 builder.Services.AddDbContext<Context>();
 
+builder.Services.AddScoped<PortfolioInfoPlugin>();
+
+builder.Services.AddKernel();
+builder.Services.AddScoped<IPortfolioDal, EfPortfolioDal>();
+builder.Services.AddScoped<IPortfolioService, PortfolioManager>();
+builder.Services.AddTransient<Kernel>(sp =>
+{
+    // Plugin'i DI konteynerinden çek (Böylece Business Manager da dolu gelir)
+    var plugin = sp.GetRequiredService<PortfolioInfoPlugin>();
+
+    var kBuilder = Kernel.CreateBuilder();
+
+    // Plugin'i Kernel'a ekle
+    kBuilder.Plugins.AddFromObject(plugin, "Portfolio");
+
+    // Llama 3 (Ollama) Baðlantýsý
+    kBuilder.AddOpenAIChatCompletion(
+        modelId: "llama3.2",
+        apiKey: "ignore", // Local olduðu için önemsiz
+        endpoint: new Uri("http://localhost:11434/v1") // Ollama adresi
+    );
+
+    return kBuilder.Build();
+});
 
 // IDENTITY kaydý - EN ÖNEMLÝ KISIM
 builder.Services.AddIdentity<WriterUser, WriterRole>()
