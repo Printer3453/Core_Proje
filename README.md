@@ -54,6 +54,5 @@ Blog & Yorum Sistemi: AJAX tabanlı asenkron yorumlaşma.
 
 Proje hala geliştiriliyor
 
-(Chat botun GitHub'dan kod okuyup cevap verdiği bir anın ekran görüntüsünü buraya eklemen çok etkileyici olur.)
 
 Geliştirici: Ömer Faruk Temel Eğitim: Murat Yücedağ
