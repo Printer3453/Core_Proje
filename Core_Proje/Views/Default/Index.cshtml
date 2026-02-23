@@ -120,7 +120,7 @@
             background-color: #fff;
             border-radius: 15px;
             box-shadow: 0 5px 25px rgba(0,0,0,0.2);
-            z-index: 9999;
+           z-index: 9999;
             display: none; /* Başlangıçta gizli */
             flex-direction: column;
             overflow: hidden;
@@ -306,7 +306,7 @@
                 appendMessage(formattedReply, 'ai', true);
 
             } catch (error) {
-                appendMessage("Üzgünüm, şu an bağlantıda bir sorun var. Lütfen Llama'nın açık olduğundan emin ol.", 'ai');
+                appendMessage("Üzgünüm, şu an bağlantıda bir sorun var. (API Key veya İnternet hatası olabilir).", 'ai');
                 console.error(error);
             } finally {
                 typingDiv.style.display = 'none';

@@ -6,7 +6,9 @@ using DataAccessLayer.Concrete;
 using DataAccessLayer.EntityFramework;
 using EntityLayer.Concrete;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.SemanticKernel; 
+using Microsoft.SemanticKernel;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
 using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -33,12 +35,12 @@ builder.Services.AddTransient<Kernel>(sp =>
 
     // Plugin'i Kernel'a ekle
     kBuilder.Plugins.AddFromObject(plugin, "Portfolio");
-
-    // Llama 3 (Ollama) Baðlantýsý
+    string apiKey = "Buraya kendi key inizi giriniz";
+    
     kBuilder.AddOpenAIChatCompletion(
-        modelId: "llama3.2",
-        apiKey: "ignore", // Local olduðu için önemsiz
-        endpoint: new Uri("http://localhost:11434/v1") // Ollama adresi
+
+        modelId: "gpt-4o-mini",
+        apiKey: apiKey
     );
 
     return kBuilder.Build();

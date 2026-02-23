@@ -32,7 +32,7 @@
                                 <td>@item.SenderName</td>
                                 <td>@item.Sender</td>
                                 <td>@(((DateTime)item.Date).ToString("dd-MMM-yyyy"))</td>
-                                <td><a href="/Writer/Message/Index/@item.WriterMessageID" class="btn btn-outline-primary">Mesaj Detaylar</a></td>
+                                <td><a asp-area="Writer" asp-controller="Message" asp-action="ReceiverMessageDetails" asp-route-id="@item.WriterMessageID" class="btn btn-outline-primary">Mesaj Detaylar</a></td>
                             </tr>
                         }
 
